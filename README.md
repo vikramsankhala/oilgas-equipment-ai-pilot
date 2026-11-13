@@ -21,7 +21,7 @@ For macOS/Linux: `python3 -m venv .venv && source .venv/bin/activate`, then inst
 
 Upload `data/sample_pump_telemetry.csv` into the dashboard. To use your data, provide a CSV with **timestamp**, **asset_id**, and at least one numeric sensor (e.g. `vibration_mm_s`, `bearing_temp_c`, `pressure_bar`, `motor_current_a`). Each asset needs at least 40 complete observations and at least one varying sensor.
 
-Read the [full user manual](docs/USER_MANUAL.md) for data preparation, evaluation, interpretation and security.
+Read the [client white paper](docs/WHITE_PAPER.md) and [full user manual](docs/USER_MANUAL.md) for the methodology, data preparation, evaluation, interpretation and security.
 
 ## Scope and limitations
 
