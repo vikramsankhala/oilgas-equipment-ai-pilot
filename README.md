@@ -5,6 +5,23 @@
 
 A **local, read-only Streamlit dashboard** for detecting unusual sensor measurements in pumps, compressors and other rotating equipment using unsupervised Isolation Forest. Operators can test with a synthetic CSV or their own **approved historical data** without connecting to plant control systems.
 
+## AI-enabled service-centre excellence — complete white paper
+
+**Author: Vikram Singh Sankhala · November 2026**
+
+A client-facing research and transformation framework for compression and rotating-equipment service centres, covering **AI-driven condition monitoring, repair turnaround and service KPIs, cost optimisation, quality and non-conformance management, digital service workflows, financial governance and operational decision support**.
+
+| Edition | GitHub publication |
+| --- | --- |
+| Complete white paper — **PDF** | [Read / download PDF](docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.pdf) |
+| Complete white paper — **Word** | [Download editable DOCX](docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.docx) |
+| Complete white paper — **Markdown** | [Read the full source paper](docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.md) |
+| Technical strategy companion | [Service-centre AI strategy](docs/SERVICE_CENTER_AI_STRATEGY.md) |
+
+The **full Markdown** edition is the publishing source; [GitHub Actions](.github/workflows/publish-service-centre-paper.yml) generates the corresponding Word and PDF editions in `docs/`. The generated editions are designed for distribution to prospective industrial partners, employers and reliability teams.
+
+**Scope limitation:** the existing Streamlit pilot implements local, read-only statistical anomaly screening on historical telemetry. The service-centre KPI, repair turnaround, quality, financial and enterprise workflow modules discussed in the paper are **proposed future capabilities**, not demonstrated production functions. Neither safety certification nor verified industrial ROI is claimed.
+
 ## Five-minute quick start
 
 For **Windows PowerShell** with Python 3.11:
