@@ -1,0 +1,14 @@
+@page {size:A4; margin:20mm 19mm 20mm 19mm; @bottom-center { content: "Vikram Singh Sankhala  •  " counter(page); font-size:9pt; color:#667b82; }}
+body {font-family: "Liberation Sans", "DejaVu Sans", sans-serif; font-size:10pt; line-height:1.48; color:#1b3444;}
+h1 {color:#12374c;font-size:22pt;margin-top:18pt;break-after:avoid;}
+h2 {color:#13686d;font-size:15pt;margin-top:15pt;break-after:avoid;}
+h3 {color:#13686d;font-size:12pt;break-after:avoid;}
+p,li {orphans:3;widows:3;}
+strong {color:#113647;}
+a {color:#117a7c;}
+blockquote {border-left:3px solid #138688;padding:7px 13px;background:#eff7f7;}
+table{border-collapse:collapse;width:100%;font-size:8pt;margin-top:10px;margin-bottom:14px;}
+th{color:white;background:#153b51;text-align:left;}
+th,td{border:1px solid #cad6d9;padding:7px 8px;vertical-align:top;}
+tr:nth-child(even){background:#f1f7f8;}
+pre,code {white-space:pre-wrap;overflow-wrap:anywhere;font-size:8.5pt;}
