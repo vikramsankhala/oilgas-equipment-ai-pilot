@@ -1,0 +1,58 @@
+name: Publish service-centre AI white paper
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.md'
+      - 'docs/service_centre_white_paper.css'
+      - '.github/workflows/publish-service-centre-paper.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Install publishing dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y pandoc
+          python -m pip install --disable-pip-version-check 'weasyprint>=63,<69'
+      - name: Generate the full editable Word edition
+        run: |
+          pandoc \
+            docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.md \
+            --from=gfm --to=docx \
+            --metadata title="AI-Enabled Service-Centre Excellence" \
+            -o docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.docx
+      - name: Generate the full printable PDF edition
+        run: |
+          pandoc \
+            docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.md \
+            --from=gfm --to=html5 --standalone \
+            --metadata title="AI-Enabled Service-Centre Excellence" \
+            --css docs/service_centre_white_paper.css \
+            -o /tmp/service_centre_paper.html
+          weasyprint /tmp/service_centre_paper.html \
+            docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.pdf
+      - name: Ensure both generated editions exist
+        run: |
+          test -s docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.docx
+          test -s docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.pdf
+          ls -lh docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.*
+      - name: Commit generated editions
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.docx \
+                  docs/AI_Enabled_Service_Centre_White_Paper_Vikram_Singh_Sankhala.pdf
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish Word and PDF editions of service-centre AI white paper"
+            git push
+          fi
